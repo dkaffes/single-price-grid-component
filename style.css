@@ -1,0 +1,179 @@
+/**************************/
+/* Mobile-first design */
+/**************************/
+
+:root {
+  --clr-primary-cyan: hsl(179, 62%, 43%);
+  --clr-primary-cyan-transpar: hsla(179, 62%, 43%, 0.6);
+  --clr-primary-bright-yellow: hsl(71, 73%, 54%);
+  --clr-neutral-light-gray: hsl(204, 43%, 93%);
+  --clr-neutral-light-gray-transpar: hsla(203, 44%, 93%, 0.5);
+  --clr-neutral-grayish-blue: hsl(218, 22%, 67%);
+  --fw-regular: 400;
+  --fw-bold: 700;
+}
+
+/* General component styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  font-size: 1rem;
+  background-color: var(--clr-neutral-light-gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  min-height: 100svh;
+}
+
+.wrapper {
+  max-width: 40rem; /* 640px */
+  margin: 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px 0 var(--clr-neutral-grayish-blue);
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr);
+}
+
+/* General card styling */
+.card {
+  padding: 2rem 1.5rem 1.5rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: var(--fw-bold);
+  margin-bottom: 1.6rem;
+  color: var(--clr-neutral-light-gray);
+}
+
+/* Card - Join our community */
+.card-join {
+  background-color: #fff;
+}
+
+.card-join-title {
+  color: var(--clr-primary-cyan);
+}
+
+.card-join-subtitle {
+  font-size: 1rem;
+  color: var(--clr-primary-bright-yellow);
+  margin-bottom: 1.2rem;
+}
+
+.card-join-description {
+  font-size: 0.9rem;
+  color: var(--clr-neutral-grayish-blue);
+  line-height: 1.8;
+}
+
+/* Card - Monthly subscription */
+.card-subscription {
+  background-color: var(--clr-primary-cyan);
+  color: var(--clr-neutral-light-gray);
+}
+
+.price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem 1rem; /* row-gap defined for pretty small screens */
+  margin-bottom: 1rem;
+}
+
+.price-dollars {
+  font-weight: var(--fw-bold);
+  font-size: 2.5rem;
+}
+
+.price-frequency {
+  color: var(--clr-neutral-light-gray-transpar);
+}
+
+.btn {
+  display: inline-block;
+  margin: 2rem auto 1rem;
+  padding: 0.7em 5.5em; /* the button padding can scale with the button's font size */
+  background-color: var(--clr-primary-bright-yellow);
+  border-radius: 5px;
+  box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.2);
+  font-size: 1.2rem;
+  color: currentColor;
+  text-decoration: none;
+  transition: all 0.4s;
+}
+
+/* Card - Why us */
+.card-why {
+  background-color: var(--clr-primary-cyan-transpar);
+  color: var(--clr-neutral-light-gray);
+}
+
+.card-why > ul {
+  list-style-type: none;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.attribution {
+  font-size: 0.6875rem; /* 11px */
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/**************************/
+/* MEDIA QUERIES */
+/* changing the component layout to a 2-column grid and changing some font-size, padding and margin settings */
+/**************************/
+
+@media (min-width: 50em) {
+  .wrapper {
+    max-width: 60rem; /* 960px */
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    padding: 3rem 2.5rem 2rem;
+  }
+
+  .card-join {
+    grid-column: 1 / -1;
+  }
+
+  .card-join-title {
+    font-size: 1.5rem;
+  }
+
+  .card-join-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-join-description {
+    font-size: 1.1rem;
+  }
+
+  .card-join-description > span {
+    display: block;
+  }
+
+  .card-subscription-description {
+    font-size: 1.1rem;
+  }
+
+  .btn:hover,
+  .btn:active {
+    color: var(--clr-primary-cyan);
+    background-color: var(--clr-neutral-light-gray);
+  }
+}
